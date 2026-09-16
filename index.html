@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据目录 · Data Atlas</title><link rel="stylesheet" href="style.css"></head>
 <body><header><span class="brand">▦ DATA ATLAS</span><span>研究数据工作台</span></header><main>
-<section class="hero"><div><p class="eyebrow">DATASET CATALOG / 数据资产目录</p><h1>数据有迹可循。</h1><p>检索项目与城市数据，查看存储位置，记录后续整理计划。</p></div><div class="stamp">索引快照<span id="updated">加载中</span></div></section>
-<div class="notice">等待 Savio 传输完成后再合并。此页面展示目录快照，不代表实时传输状态；标记和备注只保存在当前浏览器，可导出备份。</div>
+<section class="hero"><div><p class="eyebrow">PROJECT DATA REGISTRY / 项目数据登记册</p><h1>一个项目，一个入口。</h1><p>按原始数据、中间数据和成果整理，所有存储位置集中查看。</p></div><div class="stamp">索引快照<span id="updated">加载中</span></div></section>
+<div class="notice">已建立项目分类登记，实际文件位置保持不变，等 Savio 传完再合并。分类基于目录名称和部分项目说明；混合目录保留待确认。备注只保存于当前浏览器。</div>
 <section id="stats" class="stats" aria-label="索引统计"></section>
+<label>查找项目<input id="project-search" type="search" placeholder="搜索项目名称或数据目录…"></label>
+<section id="projects" class="project-grid" aria-label="项目列表"></section>
+<section id="workspace" hidden><div class="toolbar"><div><p class="eyebrow">PROJECT WORKSPACE</p><h2 id="project-title"></h2></div><button id="close-project">返回项目列表</button></div><p id="project-summary"></p><div id="categories" class="categories"></div>
 <section class="controls"><label class="search">搜索目录<input id="search" type="search" placeholder="项目、城市、目录名称…"></label><label>来源<select id="origin"><option value="">全部来源</option></select></label><label>记录状态<select id="status"><option value="">全部状态</option><option>未标记</option><option>待核对</option><option>待合并</option><option>暂保留</option><option>已整理</option></select></label><button id="reset">清除筛选</button></section>
 <div class="toolbar"><span id="count" role="status"></span><div><button id="export">导出备注</button><button id="import">导入备注</button><input id="import-file" type="file" accept="application/json" hidden></div></div>
-<div class="table-wrap"><table><thead><tr><th>项目 / 数据集</th><th>来源</th><th>目录位置</th><th>整理标记</th><th></th></tr></thead><tbody id="rows"></tbody></table></div><div class="pager"><button id="prev">上一页</button><span id="page"></span><button id="next">下一页</button></div>
+<div class="table-wrap"><table><thead><tr><th>数据目录</th><th>分类</th><th>存储位置</th><th>整理标记</th><th></th></tr></thead><tbody id="rows"></tbody></table></div><div class="pager"><button id="prev">上一页</button><span id="page"></span><button id="next">下一页</button></div></section>
 <p id="message" role="status"></p><footer>目录级索引 · 不执行 NAS 文件操作 · <span id="mode"></span></footer></main>
 <dialog id="detail"><form method="dialog"><button class="close" aria-label="关闭">×</button></form><p class="eyebrow">DATASET DETAILS</p><h2 id="title"></h2><dl id="fields"></dl><label>整理标记<select id="edit-status"><option>未标记</option><option>待核对</option><option>待合并</option><option>暂保留</option><option>已整理</option></select></label><label>备注<textarea id="note" rows="4" placeholder="记录数据用途、待核对项或后续合并计划"></textarea></label><button id="save" class="primary">保存到当前浏览器</button></dialog>
 <script src="catalog.js"></script><script src="app.js"></script></body></html>
